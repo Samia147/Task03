@@ -1,31 +1,47 @@
-const express= require('express');
-const router  = require('./routes/videosRouting');
+const  express= require("express");
+const router  = require("./routes/videosRouting");
 const mongoose= require("mongoose");
-//app
+
+
+//express app
 const app=express();
 
 //middleware
 app.use(express.json());
-app.use('/videos', router);
+app.use('/videosRouting', router);
+
+
 
 //routes
 //app.get('/', (req,res)=>{
- //  res.json({mess: "Hello"})
+ //res.json({mess: "Hello"});
 //})
-mongoose.connect("mongodb+srv://trial:<password>@cluster0.1mkfzzg.mongodb.net/?retryWrites=true&w=majority")
+
+//get all
+//app.post("/",(req,res)=>{
+ // res.json({mess: "Hello from post."});
+//})
+
+//get single
+//app.post("/:id",(req,res)=>{
+//    res.json({mess: "Single."});
+// })
+
+
+//get singler
+// router.get('/:id',(req,res)=> {
+    //res.json({mess:'hello!'})
+// })
+
+
+//database connection
+mongoose.connect("mongodb+srv://trial:trial@cluster0.1mkfzzg.mongodb.net/?retryWrites=true&w=majority")
 .then(()=> {
-   //port
+
     app.listen(4000, ()=> {
         console.log('Port 4000')
     })
-
 })
 .catch((error)=>{
-    console.log("error");
+   console.log("error");
 });
-
-
-app.post("/",(req,res)=>{
-   res.json({mess: "Hello everyone."});
-})
-
