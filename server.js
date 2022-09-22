@@ -1,5 +1,5 @@
 const  express= require("express");
-const router  = require("./routes/videosRouting");
+const router= require('./routes/videosRouting');
 const mongoose= require("mongoose");
 
 
@@ -8,14 +8,14 @@ const app=express();
 
 //middleware
 app.use(express.json());
-app.use('/videosRouting', router);
+app.use('/videos', router);
 
 
 
 //routes
-//app.get('/', (req,res)=>{
- //res.json({mess: "Hello"});
-//})
+app.get('/', (req,res)=>{
+ res.json({mess: "Hello"});
+})
 
 //get all
 //app.post("/",(req,res)=>{
@@ -43,5 +43,5 @@ mongoose.connect("mongodb+srv://trial:trial@cluster0.1mkfzzg.mongodb.net/?retryW
     })
 })
 .catch((error)=>{
-   console.log("error");
+   console.log(error);
 });
