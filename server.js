@@ -1,6 +1,7 @@
 const  express= require("express");
-const router= require('./routes/videosRouting');
+const videoRoute= require('./routes/videosRouting');
 const mongoose= require("mongoose");
+const  userRoute  = require("./routes/userRoute");
 
 
 //express app
@@ -8,7 +9,9 @@ const app=express();
 
 //middleware
 app.use(express.json());
-app.use('/videos', router);
+app.use('/api/videos', videoRoute);
+app.use('/api/user', userRoute);
+
 
 
 

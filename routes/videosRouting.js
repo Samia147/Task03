@@ -8,8 +8,7 @@ const VideoModel = require("../models/VideoModel");
 const router = express();
 
 
-//list of videos
-router.get("/", getALLVideos );
+ 
  
 // create
 router.post('/', createVideo);
